@@ -8,7 +8,7 @@ public class BMR{
     public static void calculate(){
         System.out.println("++ Basal-Metabolic-Rate Calculator ++\n");
 
-        if(!(Data.isAgeAvailable() || Data.isGenderAvailable() || Data.isWeightAvailable() || Data.isHeightAvailable())){
+        if(!(Data.isAgeAvailable() && Data.isGenderAvailable() && Data.isWeightAvailable() && Data.isHeightAvailable())){
             System.out.println("Please enter following data:\n");
 
             if(!(Data.isGenderAvailable())){
@@ -24,6 +24,7 @@ public class BMR{
             if(!(Data.isAgeAvailable())){
                 System.out.print("Age [1-99]: ");
                 int temp = scanner.nextInt();
+                scanner.nextLine();
                 if(temp < 1 || temp > 99){
                     Main.exit(true, 1);
                 }
@@ -34,33 +35,30 @@ public class BMR{
             if(!(Data.isHeightAvailable())){
                 System.out.print("Height [cm]: ");
                 Data.setHeight((scanner.nextDouble() / 100));
+                scanner.nextLine();
                 Data.setHeightAvailable(true);
             }
 
             if (!Data.isWeightAvailable()){
                 System.out.print("Weight [kg]: ");
                 Data.setWeight(scanner.nextDouble());
+                scanner.nextLine();
                 Data.setWeightAvailable(true);
             }
 
             System.out.println();
         }
 
-        double result;
+        int result;
 
         if(Data.getGender() == 'M'){
-            result = 10 * Data.getWeight() + 6.25 * Data.getHeight() - 5 * Data.getAge() + 5;
+            result = (int) ((int) (10 * Data.getWeight()) + (6.25 * (Data.getHeight() * 100)) - (5 * Data.getAge()) + 5);
         } else {
-            result = 10 * Data.getWeight() + 6.25 * Data.getHeight() - 5 * Data.getAge() - 161;
+            result = (int) ((int) (10 * Data.getWeight()) + (6.25 * (Data.getHeight() * 100)) - (5 * Data.getAge()) - 161);
         }
 
-        System.out.printf("Result: %.2f%n", result);
-        System.out.println("Interpretation: " + result(result));
+        System.out.printf("Result: %d%n", result);
 
         Main.restart();
-    }
-
-    public static String result(double bmi){
-        return "not implemented yet lol";
     }
 }
