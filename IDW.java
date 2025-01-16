@@ -13,7 +13,12 @@ public class IDW {
 
             if(!(Data.isHeightAvailable())){
                 System.out.print("Height [cm]: ");
-                Data.setHeight((scanner.nextDouble() / 100));
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setHeight(temp / 100);
+                }
                 scanner.nextLine();
                 Data.setHeightAvailable(true);
             }
@@ -25,8 +30,12 @@ public class IDW {
         System.out.println("[1]: Lower BMI\n[2]: Moderate BMI\n[3]: Higher BMI\n");
         System.out.print("Selection [1-3]: ");
         int level = scanner.nextInt();
-        scanner.nextLine();
 
+        if(level == -1){
+            Main.RTM();
+        }
+        
+        scanner.nextLine();
         System.out.println();
 
         double idealWeight = calculateIdealWeight(Data.getHeight(), level);
