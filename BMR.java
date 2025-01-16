@@ -57,7 +57,7 @@ public class BMR{
             result = (int) ((int) (10 * Data.getWeight()) + (6.25 * (Data.getHeight() * 100)) - (5 * Data.getAge()) - 161);
         }
 
-        System.out.printf("Result: %d%n", result);
+        System.out.println("Result: " + result);
 
         Main.restart();
     }
