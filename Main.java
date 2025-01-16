@@ -9,7 +9,7 @@ public class Main {
 
     //Global variables:
     static final String LASTUPDATE = "16.01.25";
-    static final String VERSION = "1.2";
+    static final String VERSION = "2.0";
     static final String DIVIDER = "\n--------------------------------------------\n";
 
     public static void main(String[] args) {
@@ -25,11 +25,6 @@ public class Main {
         System.out.println("Select one of the modes listed below:");
 
         int modeIndex = 0;
-
-        if(!isFirstRun){
-            modeIndex++;
-        }
-
         boolean unlockAdmin = true;
         int nonAdminModeCount = 0;
 
@@ -41,6 +36,10 @@ public class Main {
 
         if(Data.getModeSelection().length == nonAdminModeCount){
             unlockAdmin = false;
+        }
+
+        if(!isFirstRun || !unlockAdmin){
+            modeIndex++;
         }
         
         for(int i = modeIndex; i < Data.getModeSelection().length; i++){
