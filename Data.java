@@ -47,7 +47,7 @@ public class Data {
         Data.hipAvailable = false;
 
         //Global mode variables declaration:
-        Data.modeSelection = new String[5];
+        Data.modeSelection = new String[6];
         Data.modeAvailability = new boolean[Data.modeSelection.length];
         Arrays.fill(modeAvailability, true);
 
@@ -56,8 +56,8 @@ public class Data {
         Data.modeSelection[1] = "BMI Calculator";
         Data.modeSelection[2] = "BMR Calculator";
         Data.modeSelection[3] = "BFP Calculator";
-        Data.modeAvailability[4] = false;
         Data.modeSelection[4] = "WHR Calculator";
+        Data.modeSelection[5] = "IDW Calculator";
 
     }
 
