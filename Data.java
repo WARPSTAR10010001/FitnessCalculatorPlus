@@ -2,16 +2,40 @@
 
 public class Data {
     //Global variables:
+    private boolean adminMode;
     private boolean weightAvailable;
     private double weight;
     private boolean heightAvailable;
     private double height;
 
-    public void reset(){
-        //Somehow doesnt reset the availability, needs rework
+    public Data(){
+        this.adminMode = false;
+        this.weightAvailable = false;
+        this.weight = 0;
+        this.heightAvailable = false;
+        this.height = 0;
+    }
+
+    public void resetAvailability(){
         this.weightAvailable = false;
         this.heightAvailable = false;
-        //Add other booleans
+    
+        System.out.println("weightAvailable: " + weightAvailable);
+        System.out.println("heightAvailable: " + heightAvailable);
+    
+        if (!(weightAvailable && heightAvailable)) {
+            System.out.println("WORKS");
+        } else {
+            System.out.println("FAULTY");
+        }
+    }    
+
+    public boolean isAdminMode() {
+        return adminMode;
+    }
+
+    public void setAdminMode(boolean adminMode) {
+        this.adminMode = adminMode;
     }
 
     public boolean isWeightAvailable() {
