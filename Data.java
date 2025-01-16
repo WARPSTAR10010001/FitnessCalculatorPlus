@@ -19,6 +19,8 @@ public class Data {
     private static boolean waistAvailable;
     private static double neck;
     private static boolean neckAvailable;
+    private static double hip;
+    private static boolean hipAvailable;
 
     //Global mode variables:
     private static String[] modeSelection;
@@ -41,9 +43,11 @@ public class Data {
         Data.waistAvailable = false;
         Data.neck = 0;
         Data.neckAvailable = false;
+        Data.hip = 0;
+        Data.hipAvailable = false;
 
         //Global mode variables declaration:
-        Data.modeSelection = new String[4];
+        Data.modeSelection = new String[5];
         Data.modeAvailability = new boolean[Data.modeSelection.length];
         Arrays.fill(modeAvailability, true);
 
@@ -51,8 +55,9 @@ public class Data {
         Data.modeSelection[0] = "Admin Mode";
         Data.modeSelection[1] = "BMI Calculator";
         Data.modeSelection[2] = "BMR Calculator";
-        Data.modeAvailability[3] = false;
         Data.modeSelection[3] = "BFP Calculator";
+        Data.modeAvailability[4] = false;
+        Data.modeSelection[4] = "WHR Calculator";
 
     }
 
@@ -71,6 +76,8 @@ public class Data {
         Data.waistAvailable = false;
         Data.neck = 0;
         Data.neckAvailable = false;
+        Data.hip = 0;
+        Data.hipAvailable = false;
     }    
 
     //Getter & Setter:
@@ -184,5 +191,21 @@ public class Data {
 
     public static void setNeckAvailable(boolean neckAvailable) {
         Data.neckAvailable = neckAvailable;
+    }
+
+    public static double getHip() {
+        return hip;
+    }
+
+    public static void setHip(double hip) {
+        Data.hip = hip;
+    }
+
+    public static boolean isHipAvailable() {
+        return hipAvailable;
+    }
+
+    public static void setHipAvailable(boolean hipAvailable) {
+        Data.hipAvailable = hipAvailable;
     }
 }
