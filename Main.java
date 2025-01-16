@@ -3,24 +3,21 @@
 import java.util.Scanner;
 
 public class Main {
-    //Global objects & classes:
-    static Calculator calc = new Calculator();
-    static Data data = new Data();
+    //Global objects:
     static Scanner scanner = new Scanner(System.in);
+    static Calculator calc = new Calculator();
 
     //Global variables:
     static final String LASTUPDATE = "16.01.25";
-    static final String VERSION = "1.1";
+    static final String VERSION = "1.2";
     static final String DIVIDER = "\n--------------------------------------------\n";
-    static final String NAME = "FitnessCalculatorPlus";
-    static final String[] mode = new String[2];
 
     public static void main(String[] args) {
-        System.out.println("++++" + NAME + "++++");
+        System.out.println("++++ FitnessCalculatorPlus ++++");
         System.out.println("Version: " + VERSION + " / Last Updated: " + LASTUPDATE);
         System.out.println(DIVIDER);
 
-        modeConfig();
+        Data.set();
         selection(true);
     }
 
@@ -33,22 +30,32 @@ public class Main {
             modeIndex++;
         }
         
-        for(int i = modeIndex; i < mode.length; i++){
-            System.out.println("[" + i + "]: " + mode[i]);
+        for(int i = modeIndex; i < Data.getModeSelection().length; i++){
+            if(!(Data.isAdmin())){
+                if(Data.getModeAvailability()[i] == true){
+                    System.out.println("[" + i + "]: " + Data.getModeSelection()[i]);
+                }
+            } else {
+                if(Data.getModeAvailability()[i] == true){
+                    System.out.println("[" + i + "]: " + Data.getModeSelection()[i]);
+                } else {
+                    System.out.println("[" + i + "]: " + Data.getModeSelection()[i] + " [AdminMode]");
+                }
+            }
         }
 
         System.out.print("\nSelection: ");
         int selection = scanner.nextInt();
 
-        if(selection >= modeIndex && selection < mode.length){
+        if(selection >= modeIndex && selection < Data.getModeSelection().length){
             System.out.println(DIVIDER);
         }
 
         switch (selection){
             case 0 -> {
                 if(isFirstRun){
-                    data.setAdminMode(true);
-                    System.out.println("Admin Mode: " + data.isAdminMode());
+                    Data.setAdmin(true);
+                    System.out.println("Admin Mode: " + Data.isAdmin());
                     System.out.println(DIVIDER);
                     selection(false);
                 } else {
@@ -56,6 +63,7 @@ public class Main {
                 }
             }
             case 1 -> calc.bmi();
+            case 2 -> calc.bmr();
             //Implement other calculators here
             default -> exit(true, 1);
         }
@@ -66,32 +74,27 @@ public class Main {
 
         System.out.println(DIVIDER);
         System.out.print("Calculate another value? [Y/N]: ");
-        char restart = scanner.nextLine().charAt(0);
+        char restart = Character.toUpperCase(scanner.nextLine().charAt(0));
         switch (restart) {
-            case 78, 110 -> exit(false, 0);
-            case 89, 121 -> {
-                System.out.print("Keep data? [Y/N]: ");
-                char reset = scanner.nextLine().charAt(0);
+            case 'N' -> exit(false, 0);
+            case 'Y' -> {
+                System.out.print("Keep current values? [Y/N]: ");
+                char reset = Character.toUpperCase(scanner.nextLine().charAt(0));
                 switch (reset) {
-                    case 78, 110 -> {
-                        data.resetAvailability();
-                        System.out.println(DIVIDER);
+                    case 'N' -> {
+                        Data.resetAvailability();
                         selection(false);
-                    }
-                    case 89, 121 -> {
+                }
+                    case 'Y' -> {
                         System.out.println(DIVIDER);
                         selection(false);
                     }
                     default -> exit(true, 1);
                 }
             }
+
             default -> exit(true, 1);
         }
-    }
-
-    public static void modeConfig(){
-        mode[0] = "Admin Mode";
-        mode[1] = "BMI Calculator";
     }
 
     public static void exit(boolean isError, int exitCode){
