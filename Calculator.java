@@ -4,31 +4,30 @@ import java.util.Scanner;
 
 public class Calculator {
     //Global objects & classes:
-    static Data data = new Data();
     static Scanner scanner = new Scanner(System.in);
 
     public void bmi(){
-        System.out.println("++Body-Mass-Index Calculator++\n");
+        System.out.println("++ Body-Mass-Index Calculator ++\n");
 
-        if(!(data.isHeightAvailable() || data.isWeightAvailable())){
+        if(!(Data.isHeightAvailable() || Data.isWeightAvailable())){
             System.out.println("Please enter following data:\n");
 
-            if(!(data.isHeightAvailable())){
+            if(!(Data.isHeightAvailable())){
                 System.out.print("Height [cm]: ");
-                data.setHeight((scanner.nextDouble() / 100));
-                data.setHeightAvailable(true);
+                Data.setHeight((scanner.nextDouble() / 100));
+                Data.setHeightAvailable(true);
             }
 
-            if (!data.isWeightAvailable()){
+            if (!Data.isWeightAvailable()){
                 System.out.print("Weight [kg]: ");
-                data.setWeight(scanner.nextDouble());
-                data.setWeightAvailable(true);
+                Data.setWeight(scanner.nextDouble());
+                Data.setWeightAvailable(true);
             }
 
             System.out.println();
         }
 
-        double result = data.getWeight() / Math.pow(data.getHeight(), 2);
+        double result = Data.getWeight() / Math.pow(Data.getHeight(), 2);
 
         System.out.printf("Result: %.1f%n", result);
         System.out.println("Interpretation: " + bmiInterpretation(result));
@@ -38,5 +37,9 @@ public class Calculator {
 
     public String bmiInterpretation(double bmi){
         return "not implemented yet";
+    }
+
+    public void bmr(){
+        
     }
 }
