@@ -20,7 +20,6 @@ public class Main {
         System.out.println("Version: " + VERSION + " / Last Updated: " + LASTUPDATE);
         System.out.println(DIVIDER);
 
-        data.reset();
         modeConfig();
         selection(true);
     }
@@ -30,7 +29,7 @@ public class Main {
 
         int modeIndex = 0;
 
-        if(isFirstRun){
+        if(!isFirstRun){
             modeIndex++;
         }
         
@@ -48,9 +47,12 @@ public class Main {
         switch (selection){
             case 0 -> {
                 if(isFirstRun){
-                    exit(true, 1);
+                    data.setAdminMode(true);
+                    System.out.println("Admin Mode: " + data.isAdminMode());
+                    System.out.println(DIVIDER);
+                    selection(false);
                 } else {
-                    exit(false, 0);
+                    exit(true, 1);
                 }
             }
             case 1 -> calc.bmi();
@@ -72,7 +74,7 @@ public class Main {
                 char reset = scanner.nextLine().charAt(0);
                 switch (reset) {
                     case 78, 110 -> {
-                        data.reset();
+                        data.resetAvailability();
                         System.out.println(DIVIDER);
                         selection(false);
                     }
@@ -88,7 +90,7 @@ public class Main {
     }
 
     public static void modeConfig(){
-        mode[0] = "Exit";
+        mode[0] = "Admin Mode";
         mode[1] = "BMI Calculator";
     }
 
