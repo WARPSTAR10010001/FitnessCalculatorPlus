@@ -13,21 +13,36 @@ public class BFP {
 
             if(!(Data.isHeightAvailable())){
                 System.out.print("Height [cm]: ");
-                Data.setHeight((scanner.nextDouble() / 100));
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setHeight((temp / 100));
+                }
                 scanner.nextLine();
                 Data.setHeightAvailable(true);
             }
 
             if(!(Data.isNeckAvailable())){
                 System.out.print("Neck [cm]: ");
-                Data.setNeck(scanner.nextDouble());
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setNeck(temp);
+                }
                 scanner.nextLine();
                 Data.setNeckAvailable(true);
             }
 
             if(!(Data.isWaistAvailable())){
                 System.out.print("Waist [cm]: ");
-                Data.setWaist(scanner.nextDouble());
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setWaist(temp);
+                }
                 scanner.nextLine();
                 Data.setWaistAvailable(true);
             }
