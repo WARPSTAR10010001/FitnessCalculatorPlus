@@ -58,7 +58,6 @@ public class Data {
         Data.modeSelection[3] = "BFP Calculator";
         Data.modeSelection[4] = "WHR Calculator";
         Data.modeSelection[5] = "IDW Calculator";
-
     }
 
     public static void resetAvailability(){
