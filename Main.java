@@ -62,10 +62,8 @@ public class Main {
                     exit(true, 1);
                 }
             }
-            case 1 -> calc.bmi();
-            case 2 -> calc.bmr();
             //Implement other calculators here
-            default -> exit(true, 1);
+            default -> calc.exec(selection);
         }
     }
 
@@ -102,6 +100,7 @@ public class Main {
             String errorMessage = "\nError: ";
             switch (exitCode){
                 case 1 -> errorMessage += "Invalid input.";
+                case 2 -> errorMessage += "Mode Unavailable";
                 default -> errorMessage += "Internal system failure.";
                 //Implement other error messages if needed
             }
