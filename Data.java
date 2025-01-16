@@ -3,9 +3,10 @@
 import java.util.Arrays;
 
 public class Data {
-    //Global variables:
+    //Global settings:
     private static boolean admin;
 
+    //Global variables:
     private static boolean weightAvailable;
     private static double weight;
     private static boolean heightAvailable;
@@ -33,21 +34,28 @@ public class Data {
         Data.ageAvailable = false;
 
         //Global mode variables declaration:
-        Data.modeSelection = new String[3];
+        Data.modeSelection = new String[4];
         Data.modeAvailability = new boolean[Data.modeSelection.length];
         Arrays.fill(modeAvailability, true);
 
         //Mode configuration:
         Data.modeSelection[0] = "Admin Mode";
-        Data.modeAvailability[1] = false;
         Data.modeSelection[1] = "BMI Calculator";
-        Data.modeAvailability[2] = false;
         Data.modeSelection[2] = "BMR Calculator";
+        Data.modeAvailability[3] = false;
+        Data.modeSelection[3] = "BFP Calculator";
+
     }
 
     public static void resetAvailability(){
         Data.weightAvailable = false;
+        Data.weight = 0;
         Data.heightAvailable = false;
+        Data.height = 0;
+        Data.gender = '-';
+        Data.genderAvailable = false;
+        Data.age = 0;
+        Data.ageAvailable = false;
     }    
 
     //Getter & Setter:
