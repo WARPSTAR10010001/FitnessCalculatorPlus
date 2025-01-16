@@ -9,26 +9,41 @@ public class WHR {
         if (!(Data.isHipAvailable() && Data.isWaistAvailable() && Data.isGenderAvailable())) {
             System.out.println("Please enter the following data:\n");
 
-            if (!(Data.isGenderAvailable())) {
-                System.out.print("Gender [m/f]: ");
-                char temp = Character.toUpperCase(scanner.nextLine().charAt(0));
-                if (temp != 'M' && temp != 'F') {
+            if(!(Data.isGenderAvailable())){
+                System.out.print("Gender [M/F]: ");
+                String tempLine = scanner.nextLine();
+                char temp = Character.toUpperCase(tempLine.charAt(0));
+                if(tempLine.equals("-1")){
+                    Main.RTM();
+                } else {
+                    Data.setGender(temp);
+                }
+                if(temp != 'M' && temp  != 'F'){
                     Main.exit(true, 1);
                 }
-                Data.setGender(temp);
                 Data.setGenderAvailable(true);
             }
 
             if (!(Data.isHipAvailable())) {
                 System.out.print("Hip [cm]: ");
-                Data.setHip(scanner.nextDouble());
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setHip(temp);
+                }
                 scanner.nextLine();
                 Data.setHipAvailable(true);
             }
 
-            if (!Data.isWaistAvailable()) {
+            if(!(Data.isWaistAvailable())){
                 System.out.print("Waist [cm]: ");
-                Data.setWaist(scanner.nextDouble());
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setWaist(temp);
+                }
                 scanner.nextLine();
                 Data.setWaistAvailable(true);
             }
