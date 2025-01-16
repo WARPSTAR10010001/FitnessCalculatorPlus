@@ -8,8 +8,8 @@ public class Main {
     static Calculator calc = new Calculator();
 
     //Global variables:
-    static final String LASTUPDATE = "16.01.25";
-    static final String VERSION = "2.0";
+    static final String LASTUPDATE = "17.01.25";
+    static final String VERSION = "2.2 (not a geometry dash reference btw)";
     static final String DIVIDER = "\n--------------------------------------------\n";
 
     public static void main(String[] args) {
@@ -84,7 +84,7 @@ public class Main {
                     exit(true, 1);
                 }
             }
-            //Implement other calculators here
+            case 69 -> exit(true, 3);
             default -> calc.exec(selection);
         }
     }
@@ -98,7 +98,7 @@ public class Main {
         switch (restart) {
             case 'N' -> exit(false, 0);
             case 'Y' -> {
-                System.out.print("Keep current values? [Y/N]: ");
+                System.out.print("Keep current data? [Y/N]: ");
                 char reset = Character.toUpperCase(scanner.nextLine().charAt(0));
                 switch (reset) {
                     case 'N' -> {
@@ -117,12 +117,20 @@ public class Main {
         }
     }
 
+    public static void RTM(){
+        System.out.println(DIVIDER);
+        System.out.println("Returning to Mode Selection.");
+        System.out.println(DIVIDER);
+        selection(false);
+    }
+
     public static void exit(boolean isError, int exitCode){
         if(isError){
             String errorMessage = "\nError: ";
             switch (exitCode){
                 case 1 -> errorMessage += "Invalid input.";
                 case 2 -> errorMessage += "Mode Unavailable";
+                case 3 -> errorMessage += "Billy-Ziegen urinieren auf ihren eigenen Köpfe um attraktiver für Weibchen zu riechen";
                 default -> errorMessage += "Internal system failure.";
                 //Implement other error messages if needed
             }
