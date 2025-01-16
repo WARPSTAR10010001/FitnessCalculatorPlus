@@ -12,36 +12,55 @@ public class BMR{
             System.out.println("Please enter following data:\n");
 
             if(!(Data.isGenderAvailable())){
-                System.out.print("Gender [m/f]: ");
-                char temp = Character.toUpperCase(scanner.nextLine().charAt(0));
+                System.out.print("Gender [M/F]: ");
+                String tempLine = scanner.nextLine();
+                char temp = Character.toUpperCase(tempLine.charAt(0));
+                if(tempLine.equals("-1")){
+                    Main.RTM();
+                } else {
+                    Data.setGender(temp);
+                }
                 if(temp != 'M' && temp  != 'F'){
                     Main.exit(true, 1);
                 }
-                Data.setGender(temp);
                 Data.setGenderAvailable(true);
             }
 
             if(!(Data.isAgeAvailable())){
                 System.out.print("Age [1-99]: ");
                 int temp = scanner.nextInt();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setAge(temp);
+                }
                 scanner.nextLine();
                 if(temp < 1 || temp > 99){
                     Main.exit(true, 1);
                 }
-                Data.setAge(temp);
                 Data.setAgeAvailable(true);
             }
 
             if(!(Data.isHeightAvailable())){
                 System.out.print("Height [cm]: ");
-                Data.setHeight((scanner.nextDouble() / 100));
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setHeight(temp / 100);
+                }
                 scanner.nextLine();
                 Data.setHeightAvailable(true);
             }
 
             if (!Data.isWeightAvailable()){
                 System.out.print("Weight [kg]: ");
-                Data.setWeight(scanner.nextDouble());
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setWeight(temp);
+                }
                 scanner.nextLine();
                 Data.setWeightAvailable(true);
             }
