@@ -22,7 +22,7 @@ public class Main {
     }
 
     public static void selection(boolean isFirstRun){
-        System.out.println("Select one of the calculators listed below:");
+        System.out.println("Select one of the modes listed below:");
 
         int modeIndex = 0;
 
@@ -44,7 +44,18 @@ public class Main {
             }
         }
 
-        System.out.print("\nSelection: ");
+        if(Data.isAdmin()){
+            System.out.print("\nSelection [1-" + (Data.getModeSelection().length - 1) + "]: ");
+        } else {
+            int adminModeCount = 0;
+
+            for(int i = 0; i < Data.getModeSelection().length; i++){
+                if(Data.getModeAvailability()[i] == true){
+                    adminModeCount++;
+                }
+            }
+            System.out.print("\nSelection [" + modeIndex + "-" + (adminModeCount - 1) + "]: ");
+        }
         int selection = scanner.nextInt();
 
         if(selection >= modeIndex && selection < Data.getModeSelection().length){
