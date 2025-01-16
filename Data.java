@@ -1,72 +1,91 @@
 //Boo!!
 
+import java.util.Arrays;
+
 public class Data {
     //Global variables:
-    private boolean adminMode;
-    private boolean weightAvailable;
-    private double weight;
-    private boolean heightAvailable;
-    private double height;
+    private static boolean admin;
+    private static boolean weightAvailable;
+    private static double weight;
+    private static boolean heightAvailable;
+    private static double height;
 
-    public Data(){
-        this.adminMode = false;
-        this.weightAvailable = false;
-        this.weight = 0;
-        this.heightAvailable = false;
-        this.height = 0;
+    //Global mode variables:
+    private static String[] modeSelection;
+    private static boolean[] modeAvailability;
+
+    //Parameterless constructor:
+    public static void set(){
+        //Global variable declaration:
+        Data.admin = false;
+        Data.weightAvailable = false;
+        Data.weight = 0;
+        Data.heightAvailable = false;
+        Data.height = 0;
+
+        //Global mode variables declaration:
+        Data.modeSelection = new String[3];
+        Data.modeAvailability = new boolean[Data.modeSelection.length];
+        Arrays.fill(modeAvailability, true);
+
+        //Mode configuration:
+        Data.modeSelection[0] = "Admin Mode";
+        Data.modeSelection[1] = "BMI Calculator";
+        Data.modeAvailability[2] = false;
+        Data.modeSelection[2] = "BMR Calculator";
     }
 
-    public void resetAvailability(){
-        this.weightAvailable = false;
-        this.heightAvailable = false;
-    
-        System.out.println("weightAvailable: " + weightAvailable);
-        System.out.println("heightAvailable: " + heightAvailable);
-    
-        if (!(weightAvailable && heightAvailable)) {
-            System.out.println("WORKS");
-        } else {
-            System.out.println("FAULTY");
-        }
+    public static void resetAvailability(){
+        Data.weightAvailable = false;
+        Data.heightAvailable = false;
     }    
 
-    public boolean isAdminMode() {
-        return adminMode;
+    //Getter & Setter:
+    public static boolean isAdmin() {
+        return admin;
     }
 
-    public void setAdminMode(boolean adminMode) {
-        this.adminMode = adminMode;
+    public static void setAdmin(boolean admin) {
+        Data.admin = admin;
     }
 
-    public boolean isWeightAvailable() {
+    public static String[] getModeSelection() {
+        return modeSelection;
+    }
+
+    public static boolean[] getModeAvailability() {
+        return modeAvailability;
+    }
+
+    public static boolean isWeightAvailable() {
         return weightAvailable;
     }
 
-    public void setWeightAvailable(boolean weightAvailable) {
-        this.weightAvailable = weightAvailable;
+    public static void setWeightAvailable(boolean weightAvailable) {
+        Data.weightAvailable = weightAvailable;
     }
 
-    public double getWeight() {
+    public static double getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public static void setWeight(double weight) {
+        Data.weight = weight;
     }
 
-    public boolean isHeightAvailable() {
+    public static boolean isHeightAvailable() {
         return heightAvailable;
     }
 
-    public void setHeightAvailable(boolean heightAvailable) {
-        this.heightAvailable = heightAvailable;
+    public static void setHeightAvailable(boolean heightAvailable) {
+        Data.heightAvailable = heightAvailable;
     }
 
-    public double getHeight() {
+    public static double getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
+    public static void setHeight(double height) {
+        Data.height = height;
     }
 }
