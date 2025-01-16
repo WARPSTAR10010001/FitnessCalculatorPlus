@@ -17,6 +17,7 @@ public class Calculator {
             case 2 -> BMR.calculate();
             case 3 -> BFP.calculate();
             case 4 -> WHR.calculate();
+            case 5 -> IDW.calculate();
             default -> Main.exit(true, 1);
         }
     }
