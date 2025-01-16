@@ -13,14 +13,24 @@ public class BMI{
 
             if(!(Data.isHeightAvailable())){
                 System.out.print("Height [cm]: ");
-                Data.setHeight((scanner.nextDouble() / 100));
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setHeight(temp / 100);
+                }
                 scanner.nextLine();
                 Data.setHeightAvailable(true);
             }
 
             if (!Data.isWeightAvailable()){
                 System.out.print("Weight [kg]: ");
-                Data.setWeight(scanner.nextDouble());
+                double temp = scanner.nextDouble();
+                if(temp == -1){
+                    Main.RTM();
+                } else {
+                    Data.setWeight(temp);
+                }
                 scanner.nextLine();
                 Data.setWeightAvailable(true);
             }
