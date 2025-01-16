@@ -16,6 +16,7 @@ public class Calculator {
             case 1 -> BMI.calculate();
             case 2 -> BMR.calculate();
             case 3 -> BFP.calculate();
+            case 4 -> WHR.calculate();
             default -> Main.exit(true, 1);
         }
     }
