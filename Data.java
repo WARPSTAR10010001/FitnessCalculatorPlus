@@ -5,10 +5,15 @@ import java.util.Arrays;
 public class Data {
     //Global variables:
     private static boolean admin;
+
     private static boolean weightAvailable;
     private static double weight;
     private static boolean heightAvailable;
     private static double height;
+    private static char gender;
+    private static boolean genderAvailable;
+    private static int age;
+    private static boolean ageAvailable;
 
     //Global mode variables:
     private static String[] modeSelection;
@@ -22,6 +27,10 @@ public class Data {
         Data.weight = 0;
         Data.heightAvailable = false;
         Data.height = 0;
+        Data.gender = '-';
+        Data.genderAvailable = false;
+        Data.age = 0;
+        Data.ageAvailable = false;
 
         //Global mode variables declaration:
         Data.modeSelection = new String[3];
@@ -30,6 +39,7 @@ public class Data {
 
         //Mode configuration:
         Data.modeSelection[0] = "Admin Mode";
+        Data.modeAvailability[1] = false;
         Data.modeSelection[1] = "BMI Calculator";
         Data.modeAvailability[2] = false;
         Data.modeSelection[2] = "BMR Calculator";
@@ -61,6 +71,22 @@ public class Data {
         return weightAvailable;
     }
 
+    public static char getGender() {
+        return gender;
+    }
+
+    public static void setGender(char gender) {
+        Data.gender = gender;
+    }
+
+    public static boolean isGenderAvailable() {
+        return genderAvailable;
+    }
+
+    public static void setGenderAvailable(boolean genderAvailable) {
+        Data.genderAvailable = genderAvailable;
+    }
+
     public static void setWeightAvailable(boolean weightAvailable) {
         Data.weightAvailable = weightAvailable;
     }
@@ -87,5 +113,21 @@ public class Data {
 
     public static void setHeight(double height) {
         Data.height = height;
+    }
+
+    public static int getAge() {
+        return age;
+    }
+
+    public static void setAge(int age) {
+        Data.age = age;
+    }
+
+    public static boolean isAgeAvailable() {
+        return ageAvailable;
+    }
+
+    public static void setAgeAvailable(boolean ageAvailable) {
+        Data.ageAvailable = ageAvailable;
     }
 }
