@@ -39,7 +39,7 @@ public class Main {
                 if(Data.getModeAvailability()[i] == true){
                     System.out.println("[" + i + "]: " + Data.getModeSelection()[i]);
                 } else {
-                    System.out.println("[" + i + "]: " + Data.getModeSelection()[i] + " [AdminMode]");
+                    System.out.println("[" + i + "]: " + Data.getModeSelection()[i] + " [Admin Mode]"); 
                 }
             }
         }
