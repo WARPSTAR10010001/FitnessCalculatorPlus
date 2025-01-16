@@ -15,6 +15,10 @@ public class Data {
     private static boolean genderAvailable;
     private static int age;
     private static boolean ageAvailable;
+    private static double waist;
+    private static boolean waistAvailable;
+    private static double neck;
+    private static boolean neckAvailable;
 
     //Global mode variables:
     private static String[] modeSelection;
@@ -24,14 +28,19 @@ public class Data {
     public static void set(){
         //Global variable declaration:
         Data.admin = false;
-        Data.weightAvailable = false;
+
         Data.weight = 0;
-        Data.heightAvailable = false;
+        Data.weightAvailable = false;
         Data.height = 0;
+        Data.heightAvailable = false;
         Data.gender = '-';
         Data.genderAvailable = false;
         Data.age = 0;
         Data.ageAvailable = false;
+        Data.waist = 0;
+        Data.waistAvailable = false;
+        Data.neck = 0;
+        Data.neckAvailable = false;
 
         //Global mode variables declaration:
         Data.modeSelection = new String[4];
@@ -48,14 +57,20 @@ public class Data {
     }
 
     public static void resetAvailability(){
-        Data.weightAvailable = false;
+        Data.admin = false;
+
         Data.weight = 0;
-        Data.heightAvailable = false;
+        Data.weightAvailable = false;
         Data.height = 0;
+        Data.heightAvailable = false;
         Data.gender = '-';
         Data.genderAvailable = false;
         Data.age = 0;
         Data.ageAvailable = false;
+        Data.waist = 0;
+        Data.waistAvailable = false;
+        Data.neck = 0;
+        Data.neckAvailable = false;
     }    
 
     //Getter & Setter:
@@ -137,5 +152,37 @@ public class Data {
 
     public static void setAgeAvailable(boolean ageAvailable) {
         Data.ageAvailable = ageAvailable;
+    }
+
+    public static double getWaist() {
+        return waist;
+    }
+
+    public static void setWaist(double waist) {
+        Data.waist = waist;
+    }
+
+    public static boolean isWaistAvailable() {
+        return waistAvailable;
+    }
+
+    public static void setWaistAvailable(boolean waistAvailable) {
+        Data.waistAvailable = waistAvailable;
+    }
+
+    public static double getNeck() {
+        return neck;
+    }
+
+    public static void setNeck(double neck) {
+        Data.neck = neck;
+    }
+
+    public static boolean isNeckAvailable() {
+        return neckAvailable;
+    }
+
+    public static void setNeckAvailable(boolean neckAvailable) {
+        Data.neckAvailable = neckAvailable;
     }
 }
