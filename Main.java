@@ -29,11 +29,30 @@ public class Main {
         if(!isFirstRun){
             modeIndex++;
         }
+
+        boolean unlockAdmin = true;
+        int nonAdminModeCount = 0;
+
+        for(int i = 0; i < Data.getModeSelection().length; i++){
+            if(Data.getModeAvailability()[i] == true){
+                nonAdminModeCount++;
+            }
+        }
+
+        if(Data.getModeSelection().length == nonAdminModeCount){
+            unlockAdmin = false;
+        }
         
         for(int i = modeIndex; i < Data.getModeSelection().length; i++){
             if(!(Data.isAdmin())){
                 if(Data.getModeAvailability()[i] == true){
-                    System.out.println("[" + i + "]: " + Data.getModeSelection()[i]);
+                    if(unlockAdmin){
+                        System.out.println("[" + i + "]: " + Data.getModeSelection()[i]);
+                    } else {
+                        if(i != 0){
+                            System.out.println("[" + i + "]: " + Data.getModeSelection()[i]);
+                        }
+                    }
                 }
             } else {
                 if(Data.getModeAvailability()[i] == true){
@@ -47,14 +66,7 @@ public class Main {
         if(Data.isAdmin()){
             System.out.print("\nSelection [1-" + (Data.getModeSelection().length - 1) + "]: ");
         } else {
-            int adminModeCount = 0;
-
-            for(int i = 0; i < Data.getModeSelection().length; i++){
-                if(Data.getModeAvailability()[i] == true){
-                    adminModeCount++;
-                }
-            }
-            System.out.print("\nSelection [" + modeIndex + "-" + (adminModeCount - 1) + "]: ");
+            System.out.print("\nSelection [" + modeIndex + "-" + (nonAdminModeCount - 1) + "]: ");
         }
         int selection = scanner.nextInt();
 
@@ -64,7 +76,7 @@ public class Main {
 
         switch (selection){
             case 0 -> {
-                if(isFirstRun){
+                if(isFirstRun && unlockAdmin){
                     Data.setAdmin(true);
                     System.out.println("Admin Mode: " + Data.isAdmin());
                     System.out.println(DIVIDER);
