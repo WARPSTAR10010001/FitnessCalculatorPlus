@@ -53,11 +53,11 @@ public class Data {
 
         //Mode configuration:
         Data.modeSelection[0] = "Admin Mode";
-        Data.modeSelection[1] = "BMI Calculator";
-        Data.modeSelection[2] = "BMR Calculator";
-        Data.modeSelection[3] = "BFP Calculator";
-        Data.modeSelection[4] = "WHR Calculator";
-        Data.modeSelection[5] = "IDW Calculator";
+        Data.modeSelection[1] = "Body-Mass-Index Calculator";
+        Data.modeSelection[2] = "Basal-Metabolic-Rate Calculator";
+        Data.modeSelection[3] = "Body-Fat-Percentage Calculator";
+        Data.modeSelection[4] = "Waist-Hip-Ratio Calculator";
+        Data.modeSelection[5] = "Ideal-Weight Calculator";
     }
 
     public static void resetAvailability(){
