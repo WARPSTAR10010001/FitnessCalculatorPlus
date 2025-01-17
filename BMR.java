@@ -76,7 +76,7 @@ public class BMR{
             result = (int) ((int) (10 * Data.getWeight()) + (6.25 * (Data.getHeight() * 100)) - (5 * Data.getAge()) - 161);
         }
 
-        System.out.println("Result: " + result);
+        System.out.println("Result: " + result + " calories");
 
         Main.restart();
     }
