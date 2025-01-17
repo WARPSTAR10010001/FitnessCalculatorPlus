@@ -9,7 +9,7 @@ public class Main {
 
     //Global variables:
     static final String LASTUPDATE = "17.01.25";
-    static final String VERSION = "2.3";
+    static final String VERSION = "2.4";
     static final String DIVIDER = "\n--------------------------------------------\n";
 
     public static void main(String[] args) {
