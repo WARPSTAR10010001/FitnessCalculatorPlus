@@ -18,6 +18,8 @@ public class Calculator {
             case 3 -> BFP.calculate();
             case 4 -> WHR.calculate();
             case 5 -> IDW.calculate();
+            case 6 -> CAL.calculate();
+            case 7 -> WLT.calculate();
             default -> Main.exit(true, 1);
         }
     }
