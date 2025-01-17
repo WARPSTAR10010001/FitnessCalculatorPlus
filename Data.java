@@ -21,6 +21,12 @@ public class Data {
     private static boolean neckAvailable;
     private static double hip;
     private static boolean hipAvailable;
+    private static int calorieDifference;
+    private static boolean calorieDifferenceAvailable;
+    private static int averageCalorieDeficit;
+    private static boolean averageCalorieDeficitAvailable;
+    private static double wantedWeight;
+    private static boolean wantedWeightAvailable;
 
     //Global mode variables:
     private static String[] modeSelection;
@@ -45,9 +51,16 @@ public class Data {
         Data.neckAvailable = false;
         Data.hip = 0;
         Data.hipAvailable = false;
+        Data.calorieDifference = 0;
+        Data.calorieDifferenceAvailable = false;
+        Data.averageCalorieDeficit = 0;
+        Data.averageCalorieDeficitAvailable = false;
+        Data.wantedWeight = 0;
+        Data.wantedWeightAvailable = false;
+        
 
         //Global mode variables declaration:
-        Data.modeSelection = new String[6];
+        Data.modeSelection = new String[8];
         Data.modeAvailability = new boolean[Data.modeSelection.length];
         Arrays.fill(modeAvailability, true);
 
@@ -58,6 +71,8 @@ public class Data {
         Data.modeSelection[3] = "Body-Fat-Percentage Calculator";
         Data.modeSelection[4] = "Waist-Hip-Ratio Calculator";
         Data.modeSelection[5] = "Ideal-Weight Calculator";
+        Data.modeSelection[6] = "Calorie-Deficit Calculator";
+        Data.modeSelection[7] = "Weight-Loss-Time Calculator";
     }
 
     public static void resetAvailability(){
@@ -77,7 +92,13 @@ public class Data {
         Data.neckAvailable = false;
         Data.hip = 0;
         Data.hipAvailable = false;
-    }    
+        Data.calorieDifference = 0;
+        Data.calorieDifferenceAvailable = false;
+        Data.averageCalorieDeficit = 0;
+        Data.averageCalorieDeficitAvailable = false;
+        Data.wantedWeight = 0;
+        Data.wantedWeightAvailable = false;
+    }
 
     //Getter & Setter:
     public static boolean isAdmin() {
@@ -206,5 +227,53 @@ public class Data {
 
     public static void setHipAvailable(boolean hipAvailable) {
         Data.hipAvailable = hipAvailable;
+    }
+
+    public static int getCalorieDifference() {
+        return calorieDifference;
+    }
+
+    public static void setCalorieDifference(int calorieDifference) {
+        Data.calorieDifference = calorieDifference;
+    }
+
+    public static boolean isCalorieDifferenceAvailable() {
+        return calorieDifferenceAvailable;
+    }
+
+    public static void setCalorieDifferenceAvailable(boolean calorieDifferenceAvailable) {
+        Data.calorieDifferenceAvailable = calorieDifferenceAvailable;
+    }
+
+    public static int getAverageCalorieDeficit() {
+        return averageCalorieDeficit;
+    }
+
+    public static void setAverageCalorieDeficit(int averageCalorieDeficit) {
+        Data.averageCalorieDeficit = averageCalorieDeficit;
+    }
+
+    public static boolean isAverageCalorieDeficitAvailable() {
+        return averageCalorieDeficitAvailable;
+    }
+
+    public static void setAverageCalorieDeficitAvailable(boolean averageCalorieDeficitAvailable) {
+        Data.averageCalorieDeficitAvailable = averageCalorieDeficitAvailable;
+    }
+
+    public static double getWantedWeight() {
+        return wantedWeight;
+    }
+
+    public static void setWantedWeight(double wantedWeight) {
+        Data.wantedWeight = wantedWeight;
+    }
+
+    public static boolean isWantedWeightAvailable() {
+        return wantedWeightAvailable;
+    }
+
+    public static void setWantedWeightAvailable(boolean wantedWeightAvailable) {
+        Data.wantedWeightAvailable = wantedWeightAvailable;
     }
 }
