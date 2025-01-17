@@ -37,15 +37,40 @@ public class WLT{
             }
 
             if(!Data.isAverageCalorieDeficitAvailable()){
-                System.out.print("Average daily calorie deficit [kcal]: ");
-                int temp = scanner.nextInt();
-                if(temp == -1){
-                    Main.RTM();
-                } else {
-                    Data.setAverageCalorieDeficit(temp);
+                if(Data.isCalorieDifferenceAvailable() && Data.getCalorieDifference() > 0){
+                    System.out.print("Use last calorie deficit [Last: " + Data.getCalorieDifference() + "]? [Y/N]: ");
+                    String useLine = scanner.nextLine();
+                    char use = Character.toUpperCase(useLine.charAt(0));
+                    if(use == 'Y'){
+                        Data.setAverageCalorieDeficit(Data.getCalorieDifference());
+                        Data.setAverageCalorieDeficitAvailable(true);
+                    } else if (use == 'N') {
+                        System.out.print("Average daily calorie deficit [kcal]: ");
+                        int temp = scanner.nextInt();
+                        if(temp == -1){
+                            Main.RTM();
+                        } else {
+                            Data.setAverageCalorieDeficit(temp);
+                        }
+                        scanner.nextLine();
+                        Data.setAverageCalorieDeficitAvailable(true);
+                    } else if (useLine.equals("-1")){
+                        Main.RTM();
+                    } else {
+                        Main.exit(true, 1);
+                    }
                 }
-                scanner.nextLine();
-                Data.setAverageCalorieDeficitAvailable(true);
+                if(!Data.isAverageCalorieDeficitAvailable()){
+                    System.out.print("Average daily calorie deficit [kcal]: ");
+                    int temp = scanner.nextInt();
+                    if(temp == -1){
+                        Main.RTM();
+                    } else {
+                        Data.setAverageCalorieDeficit(temp);
+                    }
+                    scanner.nextLine();
+                    Data.setAverageCalorieDeficitAvailable(true);
+                }
             }
             System.out.println();
         }
