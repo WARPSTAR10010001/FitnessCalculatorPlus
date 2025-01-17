@@ -7,6 +7,7 @@ public class IDW {
 
     public static void calculate() {
         System.out.println("++ Ideal Weight Calculator ++\n");
+        Data.setWantedWeightAvailable(false);
 
         if(!(Data.isHeightAvailable())){
             System.out.println("Please enter following data:\n");
@@ -39,8 +40,10 @@ public class IDW {
         System.out.println();
 
         double idealWeight = calculateIdealWeight(Data.getHeight(), level);
+        Data.setWantedWeight(idealWeight);
+        Data.setWantedWeightAvailable(true);
 
-        System.out.printf("Result: %.1fkg%n", idealWeight);
+        System.out.printf("Result: %.1f kg%n", Data.getWantedWeight());
         
         Main.restart();
     }
