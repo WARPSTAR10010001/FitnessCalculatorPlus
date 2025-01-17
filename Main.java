@@ -17,7 +17,7 @@ public class Main {
         System.out.println("Version: " + VERSION + " / Last Updated: " + LASTUPDATE);
         System.out.println(DIVIDER);
 
-        Data.set();
+        Data.setAvailability(false);
         selection(true);
     }
 
@@ -102,7 +102,8 @@ public class Main {
                 char reset = Character.toUpperCase(scanner.nextLine().charAt(0));
                 switch (reset) {
                     case 'N' -> {
-                        Data.resetAvailability();
+                        Data.setAvailability(true);
+                        System.out.println(DIVIDER);
                         selection(false);
                 }
                     case 'Y' -> {
@@ -112,7 +113,6 @@ public class Main {
                     default -> exit(true, 1);
                 }
             }
-
             default -> exit(true, 1);
         }
     }
@@ -129,10 +129,10 @@ public class Main {
             String errorMessage = "\nError: ";
             switch (exitCode){
                 case 1 -> errorMessage += "Invalid input.";
-                case 2 -> errorMessage += "Mode Unavailable";
-                case 3 -> errorMessage += "Billy-Ziegen urinieren auf ihren eigenen Köpfe um attraktiver für Weibchen zu riechen";
-                default -> errorMessage += "Internal system failure.";
+                case 2 -> errorMessage += "Mode Unavailable.";
+                case 3 -> errorMessage += "Billy-Ziegen urinieren auf ihren eigenen Köpfe um attraktiver für Weibchen zu riechen.";
                 //Implement other error messages if needed
+                default -> errorMessage += "Internal system failure.";
             }
             System.out.print(errorMessage);
         } else {
