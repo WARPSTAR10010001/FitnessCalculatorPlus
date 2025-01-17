@@ -6,7 +6,7 @@ public class WLT{
     static Scanner scanner = new Scanner(System.in);
 
     public static void calculate(){
-        System.out.println("++ Calorie-Deficit Calculator ++\n");
+        System.out.println("++ Weight-Loss-Time Calculator ++\n");
 
 
         if(!(Data.isAverageCalorieDeficitAvailable() && Data.isWeightAvailable() && Data.isWantedWeightAvailable())){
