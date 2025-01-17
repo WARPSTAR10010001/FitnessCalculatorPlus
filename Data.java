@@ -6,7 +6,7 @@ public class Data {
     //Global settings:
     private static boolean admin;
 
-    //Global variables:
+    //Static data:
     private static boolean weightAvailable;
     private static double weight;
     private static boolean heightAvailable;
@@ -32,11 +32,11 @@ public class Data {
     private static String[] modeSelection;
     private static boolean[] modeAvailability;
 
-    //Parameterless constructor:
-    public static void set(){
-        //Global variable declaration:
+    public static void setAvailability(boolean reset){
+        //Set settings:
         Data.admin = false;
 
+        //Set availability of static data:
         Data.weight = 0;
         Data.weightAvailable = false;
         Data.height = 0;
@@ -58,13 +58,18 @@ public class Data {
         Data.wantedWeight = 0;
         Data.wantedWeightAvailable = false;
         
+        //Set mode selection and availability (if first run):
+        if(!reset){
+            configMode();
+        }
+    }
 
-        //Global mode variables declaration:
+    public static void configMode(){
         Data.modeSelection = new String[8];
         Data.modeAvailability = new boolean[Data.modeSelection.length];
         Arrays.fill(modeAvailability, true);
 
-        //Mode configuration:
+        //Mode options:
         Data.modeSelection[0] = "Admin Mode";
         Data.modeSelection[1] = "Body-Mass-Index Calculator";
         Data.modeSelection[2] = "Basal-Metabolic-Rate Calculator";
@@ -73,31 +78,6 @@ public class Data {
         Data.modeSelection[5] = "Ideal-Weight Calculator";
         Data.modeSelection[6] = "Calorie-Deficit Calculator";
         Data.modeSelection[7] = "Weight-Loss-Time Calculator";
-    }
-
-    public static void resetAvailability(){
-        Data.admin = false;
-
-        Data.weight = 0;
-        Data.weightAvailable = false;
-        Data.height = 0;
-        Data.heightAvailable = false;
-        Data.gender = '-';
-        Data.genderAvailable = false;
-        Data.age = 0;
-        Data.ageAvailable = false;
-        Data.waist = 0;
-        Data.waistAvailable = false;
-        Data.neck = 0;
-        Data.neckAvailable = false;
-        Data.hip = 0;
-        Data.hipAvailable = false;
-        Data.calorieDifference = 0;
-        Data.calorieDifferenceAvailable = false;
-        Data.averageCalorieDeficit = 0;
-        Data.averageCalorieDeficitAvailable = false;
-        Data.wantedWeight = 0;
-        Data.wantedWeightAvailable = false;
     }
 
     //Getter & Setter:
