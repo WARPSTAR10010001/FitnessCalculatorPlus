@@ -52,7 +52,7 @@ public class BFP {
 
         int result = (int) (86.01 * Math.log10(Data.getWaist() - Data.getNeck()) - 70.041 * Math.log10((Data.getHeight() * 100)) + 36.76);
 
-        System.out.println("Result: " + result + "%\n");
+        System.out.println("Result: " + result + "%");
         System.out.println("Interpretation: " + result(result));
 
         Main.restart();
