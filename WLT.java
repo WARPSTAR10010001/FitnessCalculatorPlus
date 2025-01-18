@@ -76,7 +76,7 @@ public class WLT{
         }
 
         double weightDifference = Math.abs(Data.getWantedWeight() - Data.getWeight());
-        int result = (int) ((weightDifference * 7700) / Data.getAverageCalorieDeficit());
+        int result = Math.abs((int) ((weightDifference * 7700) / Data.getAverageCalorieDeficit()));
 
         System.out.println("Result: " + result);
         System.out.println("Interpretation: " + result(result));
