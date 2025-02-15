@@ -20,6 +20,7 @@ public class Calculator {
             case 5 -> IDW.calculate();
             case 6 -> CAL.calculate();
             case 7 -> WLT.calculate();
+            case 8 -> VTX.main();
             default -> Main.exit(true, 1);
         }
     }
