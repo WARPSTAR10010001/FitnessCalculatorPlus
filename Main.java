@@ -130,7 +130,7 @@ public class Main {
             switch (exitCode){
                 case 1 -> errorMessage += "Invalid input.";
                 case 2 -> errorMessage += "Mode Unavailable.";
-                case 3 -> errorMessage += "Billy-Ziegen urinieren auf ihren eigenen Köpfe um attraktiver für Weibchen zu riechen.";
+                case 3 -> errorMessage = "Billy-Ziegen urinieren auf ihren eigenen Köpfe um attraktiver für Weibchen zu riechen.";
                 //Implement other error messages if needed
                 default -> errorMessage += "Internal system failure.";
             }
