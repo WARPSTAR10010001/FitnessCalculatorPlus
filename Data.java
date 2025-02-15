@@ -65,7 +65,7 @@ public class Data {
     }
 
     public static void configMode(){
-        Data.modeSelection = new String[8];
+        Data.modeSelection = new String[9];
         Data.modeAvailability = new boolean[Data.modeSelection.length];
         Arrays.fill(modeAvailability, true);
 
@@ -78,6 +78,7 @@ public class Data {
         Data.modeSelection[5] = "Ideal-Weight Calculator";
         Data.modeSelection[6] = "Calorie-Deficit Calculator";
         Data.modeSelection[7] = "Weight-Loss-Time Calculator";
+        Data.modeSelection[8] = "Vortex Mode";
     }
 
     //Getter & Setter:
